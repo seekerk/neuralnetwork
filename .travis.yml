@@ -1,3 +1,4 @@
 language: java
 
-ant test
+script:
+    - ant test
