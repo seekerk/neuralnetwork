@@ -48,9 +48,9 @@ class SmartObject {
         return propertyValues.get(key);
     }
     
-    public void addValue(String key, String value) throws PropertyNotFoudException {
+    public void addValue(String key, String value) throws PropertyNotFoundException {
         if (!propertyTypes.containsKey(key))
-            throw new PropertyNotFoudException(key);
+            throw new PropertyNotFoundException(key);
         propertyValues.put(key, value);
     }
     

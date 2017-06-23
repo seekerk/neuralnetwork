@@ -5,6 +5,7 @@
  */
 package org.fruct.oss.nn;
 
+import org.fruct.oss.nn.PropertyNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
@@ -13,12 +14,17 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 
 /**
  *
  * @author kulakov
  */
 public class SmartObjectTest {
+    
+    @Rule
+    public final ExpectedException thrown = ExpectedException.none();
     
     public SmartObjectTest() {
     }
@@ -47,7 +53,7 @@ public class SmartObjectTest {
      * Test of getValue method, of class SmartObject.
      */
     @Test
-    public void testGetValue() throws PropertyNotFoudException {
+    public void testGetValue() throws PropertyNotFoundException {
         System.out.println("getValue");
         SmartObject instance = new SmartObject();
 
@@ -66,16 +72,23 @@ public class SmartObjectTest {
         System.out.println("addValue");
         SmartObject instance = new SmartObject();
 
-        // нельзя добавлять значение без типа
-        try {
-            instance.addValue("s", "s");
-        } catch (PropertyNotFoudException e) {
-            assertTrue(e != null);
-        }
         
         // добавляем значение с типом
         instance.addProperty("s", "s");
         instance.addValue("s", "d");
+    }
+    
+    /**
+     * нельзя добавлять значение без типа
+     *
+     * @throws org.fruct.oss.nn.PropertyNotFoudException */
+    @Test
+    public void testAddValueException() throws PropertyNotFoundException {
+        System.out.println("addValueException");
+        SmartObject instance = new SmartObject();
+        
+        thrown.expect(PropertyNotFoundException.class);
+        instance.addValue("s", "s");
     }
 
     /**

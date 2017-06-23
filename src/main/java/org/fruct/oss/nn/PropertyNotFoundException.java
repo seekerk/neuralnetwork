@@ -9,9 +9,9 @@ package org.fruct.oss.nn;
  * Свойство не найдено
  * @author kulakov
  */
-class PropertyNotFoudException extends Exception {
+class PropertyNotFoundException extends Exception {
 
-    public PropertyNotFoudException(String key) {
+    public PropertyNotFoundException(String key) {
         super(key);
     }
     
