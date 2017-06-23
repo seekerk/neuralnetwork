@@ -10,11 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import org.fruct.oss.nn.SmartObject;
 
 /**
  *

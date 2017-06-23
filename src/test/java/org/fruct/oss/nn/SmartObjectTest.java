@@ -5,13 +5,8 @@
  */
 package org.fruct.oss.nn;
 
-import org.fruct.oss.nn.PropertyNotFoundException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Rule;
@@ -51,6 +46,7 @@ public class SmartObjectTest {
 
     /**
      * Test of getValue method, of class SmartObject.
+     * @throws org.fruct.oss.nn.PropertyNotFoundException
      */
     @Test
     public void testGetValue() throws PropertyNotFoundException {
@@ -66,6 +62,7 @@ public class SmartObjectTest {
 
     /**
      * Test of addValue method, of class SmartObject.
+     * @throws java.lang.Exception
      */
     @Test
     public void testAddValue() throws Exception {
@@ -81,7 +78,7 @@ public class SmartObjectTest {
     /**
      * нельзя добавлять значение без типа
      *
-     * @throws org.fruct.oss.nn.PropertyNotFoudException */
+     * @throws org.fruct.oss.nn.PropertyNotFoundException */
     @Test
     public void testAddValueException() throws PropertyNotFoundException {
         System.out.println("addValueException");
